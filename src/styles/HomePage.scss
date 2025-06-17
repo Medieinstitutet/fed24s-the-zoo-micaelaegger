@@ -1,0 +1,40 @@
+.layout--homepage {
+  background: url("/background.jpg") no-repeat center center;
+  background-size: cover; // Gör att bilden täcker hela området
+  color: white; // Gör texten vit för att synas mot bakgrunden
+
+  .layout__header {
+    background-color: transparent; // Gör headern transparent
+    z-index: 1; // Säkerställ att headern ligger över bakgrunden
+  }
+
+  .layout__main {
+    background-color: transparent; // Gör main transparent
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    z-index: 1; // Säkerställ att innehållet ligger över bakgrunden
+  }
+
+  .homepage__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+  }
+
+  .homepage__button {
+    padding: 1rem 2rem;
+    font-size: 1.5rem;
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+    &:hover {
+      background-color: rgba(0, 0, 0, 0.9);
+    }
+  }
+}

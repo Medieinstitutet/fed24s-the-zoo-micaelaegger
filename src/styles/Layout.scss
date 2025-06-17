@@ -1,0 +1,62 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+  &__header {
+    background-color: #4caf50; // Grön bakgrund
+    color: white; // Vit text
+    padding: 1rem;
+    position: relative; // Behövs för att använda absolut positionering för länkar
+    display: flex;
+    justify-content: center; // Centrerar loggan horisontellt
+    align-items: center; // Centrerar innehållet vertikalt
+
+    h1 {
+      margin: 0;
+      font-size: 1.5rem; // Storlek på loggan
+      text-align: center;
+    }
+
+    nav {
+      position: absolute; // Placera länkarna oberoende av loggan
+      right: 2rem; // Flytta länkarna inåt från högerkanten
+      top: 50%; // Vertikal centrering
+      transform: translateY(-50%); // Justera för att centrera vertikalt
+
+      ul {
+        list-style: none; // Ta bort punktlistor
+        display: flex;
+        gap: 2rem; // Avstånd mellan länkar
+
+        li a {
+          color: white; // Vit text för länkar
+          text-decoration: none; // Ta bort understrykning
+          font-weight: bold;
+
+          &:hover {
+            text-decoration: underline; // Understrykning vid hover
+          }
+        }
+      }
+    }
+  }
+
+  &__main {
+    background-color: cadetblue;
+    flex: 1;
+    z-index: 1; // För att säkerställa att main ligger över bakgrunden
+  }
+
+  &__footer {
+    background-color: coral;
+    padding: 1rem;
+    text-align: center;
+  }
+}
