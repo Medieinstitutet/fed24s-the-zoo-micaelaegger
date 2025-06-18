@@ -17,18 +17,24 @@ export const AnimalReducer = (
 ): IAnimal[] => {
   switch (action.type) {
     case AnimalActionTypes.SET_ANIMALS:
-      return JSON.parse(action.payload) as IAnimal[];
+      return action.payload as IAnimal[];
 
     case AnimalActionTypes.UPDATE_ANIMAL:
-      const updatedAnimal = JSON.parse(action.payload) as IAnimal;
+      const updatedAnimal = action.payload as IAnimal;
       return animals.map((animal) =>
         animal.id === updatedAnimal.id ? updatedAnimal : animal
       );
 
-    case AnimalActionTypes.FEED_ANIMAL: // Hantera matning av djur
+    case AnimalActionTypes.FEED_ANIMAL:
+      console.log(
+        "[Reducer] Feeding animal ID:",
+        action.payload.id,
+        "New lastFed:",
+        action.payload.lastFed
+      );
       const { id, lastFed } = action.payload;
       return animals.map((animal) =>
-        animal.id === id ? { ...animal, lastFed, isFed: true } : animal
+        animal.id === id ? { ...animal, lastFed } : animal
       );
 
     default:

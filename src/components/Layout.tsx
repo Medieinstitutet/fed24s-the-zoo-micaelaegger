@@ -3,13 +3,17 @@ import { AnimalContext } from "../context/AnimalContext";
 import { useReducer } from "react";
 import { AnimalReducer } from "../reducer/AnimalReducer";
 import "./../styles/Layout.scss";
+import { useFetchAllAnimals } from "../hooks/useFetchAllAnimals";
 
 export const Layout = () => {
-  const location = useLocation(); // Hämta den aktuella sidans path
-  const isHomePage = location.pathname === "/"; // Kontrollera om vi är på HomePage
-
   // Reducer för att hantera djurens state
   const [animals, dispatch] = useReducer(AnimalReducer, []);
+
+  // Hämta alla djur när Layout-komponenten monteras
+  useFetchAllAnimals(dispatch); // Pass dispatch to the hook
+
+  const location = useLocation(); // Hämta den aktuella sidans path
+  const isHomePage = location.pathname === "/"; // Kontrollera om vi är på HomePage
 
   return (
     <div className={`layout ${isHomePage ? "layout--homepage" : ""}`}>

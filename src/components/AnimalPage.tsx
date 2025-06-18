@@ -1,7 +1,8 @@
-import React, { useContext, useEffect } from "react";
+import { useContext } from "react"; // Ta bort useEffect eftersom den inte används
 import { useParams } from "react-router";
 import { AnimalContext } from "../context/AnimalContext";
 import { AnimalActionTypes } from "../reducer/AnimalReducer";
+import { getAnimalFeedingStatus } from "../utils/animalStatus"; // Importera den nya funktionen
 import "./../styles/AnimalPage.scss";
 
 export const AnimalPage = () => {
@@ -22,29 +23,14 @@ export const AnimalPage = () => {
     }
   };
 
-  // Kontrollera om knappen ska vara inaktiverad
-  const isFeedButtonDisabled = (): boolean => {
-    if (!animal) return true;
-    const now = new Date();
-    const lastFedTime = new Date(animal.lastFed);
-    const hoursSinceFed =
-      (now.getTime() - lastFedTime.getTime()) / (1000 * 60 * 60);
-    return hoursSinceFed < 4; // Knappen är inaktiverad om djuret matades för mindre än 4 timmar sedan
-  };
-
-  // Visa en varning om djuret snart behöver matas
-  const showFeedingWarning = (): boolean => {
-    if (!animal) return false;
-    const now = new Date();
-    const lastFedTime = new Date(animal.lastFed);
-    const hoursSinceFed =
-      (now.getTime() - lastFedTime.getTime()) / (1000 * 60 * 60);
-    return hoursSinceFed >= 3 && hoursSinceFed < 4; // Varning om det gått mellan 3 och 4 timmar
-  };
-
   if (!animal) {
     return <p>Loading...</p>; // Visa laddning medan djuret hämtas
   }
+
+  // Använd den nya funktionen för att hämta status
+  const { isFeedButtonDisabled, showThreeHourWarning } = getAnimalFeedingStatus(
+    animal.lastFed
+  );
 
   return (
     <section className="animal-page">
@@ -60,7 +46,7 @@ export const AnimalPage = () => {
       />
       <p className="animal-page__description">{animal.longDescription}</p>
       <p className="animal-page__last-fed">Last fed: {animal.lastFed}</p>
-      {showFeedingWarning() && (
+      {showThreeHourWarning && (
         <p className="animal-page__warning">
           This animal needs to be fed soon!
         </p>
@@ -68,9 +54,10 @@ export const AnimalPage = () => {
       <button
         className="animal-page__feed-button"
         onClick={feedAnimal}
-        disabled={isFeedButtonDisabled()}
+        disabled={isFeedButtonDisabled} // Använd isFeedButtonDisabled direkt
       >
-        {isFeedButtonDisabled() ? "Cannot Feed Yet" : "Feed Animal"}
+        {isFeedButtonDisabled ? "Cannot Feed Yet" : "Feed Animal"}{" "}
+        {/* Använd isFeedButtonDisabled direkt */}
       </button>
     </section>
   );
