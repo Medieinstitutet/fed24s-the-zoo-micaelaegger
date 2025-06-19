@@ -1,88 +1,129 @@
+@import "variables";
+@import "mixins";
+
 .animals-page {
   padding: 2rem;
 
   h1 {
     text-align: center;
     margin-bottom: 2rem;
-    font-size: 2.5rem;
-    color: #333;
+    font-size: $font-size-xl;
+    color: $text-color;
   }
 
   .animals-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, 350px); // Större kort
-    gap: 2rem;
-    justify-content: center;
-    list-style: none;
-    padding: 0;
+    @include responsive-grid($gap-lg, 350px); // Use $gap-lg
+    // display: grid; // from mixin
+    // grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); // from mixin
+    // gap: 2rem; // from mixin
+    // justify-content: center; // from mixin
+    // list-style: none; // from mixin
+    // padding: 0; // from mixin
   }
 
   .animal-card {
-    display: flex;
-    flex-direction: column;
-    background-color: #ffffff;
-    border: 1px solid #e0e0e0;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    @include card-base;
+    padding: 1rem; // Add padding to the card itself
+    // display: flex; // from mixin
+    // flex-direction: column; // from mixin
+    // background-color: $background-color-light; // from mixin
+    // border: none; // Removed from mixin
+    // border-radius: $border-radius-lg; // from mixin
+    // overflow: hidden; // from mixin
+    // box-shadow: $box-shadow-light; // from mixin
+    // transition: $transition-transform; // from mixin
 
-    &:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-    }
+    // &:hover { // from mixin
+    //   transform: translateY(-5px); // from mixin
+    //   box-shadow: $box-shadow-dark; // from mixin
+    // }
 
     &__link {
       text-decoration: none;
       color: inherit;
       display: flex;
       flex-direction: column;
-      height: 100%;
+      height: 100%; // Ensure link takes full height for flex behavior
     }
 
     &__image {
       width: 100%;
       height: 200px;
       object-fit: cover;
-      border-bottom: 1px solid #e0e0e0;
+      // border-bottom: 1px solid $border-color; // Remove border
+      border-radius: $border-radius-md; // Add border-radius to image
     }
 
     &__info {
-      padding: 1.5rem;
+      // padding: 1.5rem;
+      padding: 1rem 0 0; // Adjust padding (top, sides/bottom 0)
       display: flex;
       flex-direction: column;
+      flex-grow: 1; // Allow info to grow and push status to bottom
       gap: 0.5rem;
       text-align: left;
 
       h2 {
         margin: 0;
-        font-size: 1.5rem;
+        font-size: $font-size-lg;
         font-weight: 600;
-        color: #333;
+        color: $text-color;
       }
 
       p {
         margin: 0;
-        font-size: 1rem;
-        color: #666;
+        font-size: $font-size-sm;
+        color: $secondary-text-color;
       }
     }
 
-    &__status {
-      font-size: 0.9rem;
-      font-weight: 500;
-      color: #333;
-      text-align: left; // Linjera texten till vänster
+    // Remove old status styles
+    // &__status {
+    //   font-size: $font-size-xs;
+    //   font-weight: 500;
+    //   color: $text-color;
+    //   text-align: left; // Linjera texten till vänster
+    // }
+
+    // &__status-line {
+    //   width: 100%;
+    //   text-align: center;
+    //   padding: 0.5rem 0;
+    //   font-size: $font-size-sm;
+    //   font-weight: 600;
+    //   color: $white-color;
+    //   text-transform: uppercase;
+    // }
+
+    // New status indicator styles
+    &__status-indicator {
+      display: flex;
+      align-items: center;
+      gap: $gap-sm; // Use $gap-sm, Space between dot and text
+      margin-top: auto; // Pushes to the bottom
+      padding-top: 0.75rem; // Some space above it
     }
 
-    &__status-line {
-      width: 100%;
-      text-align: center;
-      padding: 0.5rem 0;
-      font-size: 1rem;
-      font-weight: 600;
-      color: #fff;
-      text-transform: uppercase;
+    &__status-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      flex-shrink: 0; // Prevent dot from shrinking
+
+      &--fed {
+        background-color: $status-fed-color;
+      }
+      &--hungry {
+        background-color: $status-hungry-color;
+      }
+      &--very-hungry {
+        background-color: $status-very-hungry-color;
+      }
+    }
+
+    &__status-text {
+      font-size: $font-size-xs;
+      color: $secondary-text-color;
     }
   }
 }

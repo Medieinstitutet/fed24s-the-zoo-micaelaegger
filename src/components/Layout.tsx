@@ -18,7 +18,7 @@ export const Layout = () => {
   return (
     <div className={`layout ${isHomePage ? "layout--homepage" : ""}`}>
       <header className="layout__header">
-        <h1>ZooAPP</h1>
+        <img src="Logo.svg" alt="The Zoo" />
         <nav>
           <ul>
             <li>

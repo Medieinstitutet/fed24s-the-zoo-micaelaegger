@@ -17,6 +17,7 @@ export const AnimalReducer = (
 ): IAnimal[] => {
   switch (action.type) {
     case AnimalActionTypes.SET_ANIMALS:
+      localStorage.setItem("animals", JSON.stringify(action.payload));
       return action.payload as IAnimal[];
 
     case AnimalActionTypes.UPDATE_ANIMAL:
@@ -33,9 +34,11 @@ export const AnimalReducer = (
         action.payload.lastFed
       );
       const { id, lastFed } = action.payload;
-      return animals.map((animal) =>
+      const updatedAnimals = animals.map((animal) =>
         animal.id === id ? { ...animal, lastFed } : animal
       );
+      localStorage.setItem("animals", JSON.stringify(updatedAnimals));
+      return updatedAnimals;
 
     default:
       return animals;

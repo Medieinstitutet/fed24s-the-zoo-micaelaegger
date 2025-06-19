@@ -28,37 +28,47 @@ export const AnimalPage = () => {
   }
 
   // Använd den nya funktionen för att hämta status
-  const { isFeedButtonDisabled, showThreeHourWarning } = getAnimalFeedingStatus(
+  const status = getAnimalFeedingStatus(
+    // Store the whole status object
     animal.lastFed
   );
 
   return (
     <section className="animal-page">
-      <h1>{animal.name}</h1>
-      <img
-        className="animal-page__image"
-        src={animal.imageUrl}
-        alt={animal.name}
-        onError={(e) => {
-          e.currentTarget.src = "/placeholder.jpeg";
-          e.currentTarget.alt = "Placeholder image";
-        }}
-      />
-      <p className="animal-page__description">{animal.longDescription}</p>
-      <p className="animal-page__last-fed">Last fed: {animal.lastFed}</p>
-      {showThreeHourWarning && (
-        <p className="animal-page__warning">
-          This animal needs to be fed soon!
-        </p>
-      )}
-      <button
-        className="animal-page__feed-button"
-        onClick={feedAnimal}
-        disabled={isFeedButtonDisabled} // Använd isFeedButtonDisabled direkt
-      >
-        {isFeedButtonDisabled ? "Cannot Feed Yet" : "Feed Animal"}{" "}
-        {/* Använd isFeedButtonDisabled direkt */}
-      </button>
+      <div className="animal-page__image-column">
+        <img
+          className="animal-page__image"
+          src={animal.imageUrl}
+          alt={animal.name}
+          onError={(e) => {
+            e.currentTarget.src = "/placeholder.jpeg";
+            e.currentTarget.alt = "Placeholder image";
+          }}
+        />
+      </div>
+      <div className="animal-page__details-column">
+        <h1>{animal.name}</h1>
+        <p className="animal-page__description">{animal.longDescription}</p>
+        {/* Assuming lastFed should be formatted as previously, if not, this needs Date() constructor */}
+        <div className="animal-page__last-fed">
+          Last fed: {new Date(animal.lastFed).toLocaleString()}
+        </div>
+        {status.showThreeHourWarning && ( // This covers both 3-hour and implies 5-hour if logic is sequential in util
+          <div className="animal-page__warning">
+            {status.statusText || "This animal needs to be fed soon!"}{" "}
+            {/* Use status.statusText if available, else fallback */}
+          </div>
+        )}
+        <button
+          className="animal-page__feed-button"
+          onClick={feedAnimal} // Renamed from handleFeedAnimal to match existing function
+          disabled={status.isFeedButtonDisabled}
+        >
+          {status.isFeedButtonDisabled
+            ? "Cannot Feed Yet"
+            : `Feed ${animal.name}`}
+        </button>
+      </div>
     </section>
   );
 };

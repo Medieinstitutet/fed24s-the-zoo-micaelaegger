@@ -1,3 +1,6 @@
+@import "variables";
+@import "mixins"; // Included for consistency, though not strictly used in this file
+
 * {
   padding: 0;
   margin: 0;
@@ -10,53 +13,76 @@
   min-height: 100vh;
 
   &__header {
-    background-color: #4caf50; // Grön bakgrund
-    color: white; // Vit text
-    padding: 1rem;
+    background-color: $primary-color; //Klar
+    color: $white-color; // Vit text
+    padding: 1.5rem;
     position: relative; // Behövs för att använda absolut positionering för länkar
     display: flex;
-    justify-content: center; // Centrerar loggan horisontellt
+    justify-content: space-between; // Centrerar loggan horisontellt
     align-items: center; // Centrerar innehållet vertikalt
 
-    h1 {
-      margin: 0;
-      font-size: 1.5rem; // Storlek på loggan
-      text-align: center;
+    img {
+      width: 150px;
     }
 
-    nav {
-      position: absolute; // Placera länkarna oberoende av loggan
-      right: 2rem; // Flytta länkarna inåt från högerkanten
-      top: 50%; // Vertikal centrering
-      transform: translateY(-50%); // Justera för att centrera vertikalt
+    ul {
+      list-style: none;
+      display: flex;
+      gap: 1.5rem; // Adjusted gap between links
 
-      ul {
-        list-style: none; // Ta bort punktlistor
-        display: flex;
-        gap: 2rem; // Avstånd mellan länkar
+      li a {
+        color: #fff; // White text for links
+        text-decoration: none;
+        font-weight: 500; // Medium font weight for nav links
+        padding: 0.5rem 0; // Add padding for easier clicking
+        position: relative; // For hover effect
 
-        li a {
-          color: white; // Vit text för länkar
-          text-decoration: none; // Ta bort understrykning
-          font-weight: bold;
+        &:hover {
+          color: #ddd; // Lighter color on hover
+        }
 
-          &:hover {
-            text-decoration: underline; // Understrykning vid hover
-          }
+        // Adding a subtle underline hover effect
+        &::after {
+          content: "";
+          position: absolute;
+          width: 0;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: #ddd;
+          transition: width 0.3s ease;
+        }
+
+        &:hover::after {
+          width: 100%;
         }
       }
     }
   }
 
   &__main {
-    background-color: cadetblue;
+    background-color: $background-color-main;
     flex: 1;
     z-index: 1; // För att säkerställa att main ligger över bakgrunden
   }
 
   &__footer {
-    background-color: coral;
+    background-color: $primary-color;
+    color: $text-color;
     padding: 1rem;
     text-align: center;
+  }
+
+  @media (max-width: 600px) {
+    .layout__header {
+      flex-direction: column;
+      align-items: flex-start;
+
+      nav {
+        position: static;
+        transform: none;
+        margin-top: 1rem;
+      }
+    }
   }
 }

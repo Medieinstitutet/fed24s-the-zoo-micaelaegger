@@ -1,0 +1,46 @@
+@import "variables";
+
+@mixin button-base {
+  cursor: pointer;
+  border: none;
+  border-radius: $border-radius-md; // Using variable from _variables.scss
+  transition: $transition-short; // Using variable from _variables.scss
+  padding: 0.75rem 1.5rem; // Default padding, can be overridden
+  font-size: $font-size-md; // Default font size, can be overridden
+  color: $white-color; // Default text color
+  background-color: $primary-color; // Default background color
+
+  &:hover {
+    background-color: $primary-color-hover;
+  }
+
+  &:disabled {
+    background-color: $background-color-disabled;
+    cursor: not-allowed;
+  }
+}
+
+@mixin responsive-grid($gap: 2rem, $min-item-width: 350px) {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax($min-item-width, 1fr));
+  gap: $gap;
+  justify-content: center;
+  list-style: none;
+  padding: 0;
+}
+
+@mixin card-base {
+  display: flex;
+  flex-direction: column;
+  background-color: $background-color-light; // Using variable
+  // border: 1px solid $border-color; // REMOVE THIS LINE
+  border-radius: $border-radius-lg; // Using variable
+  overflow: hidden;
+  box-shadow: $box-shadow-light; // Using variable
+  transition: $transition-transform; // Using variable
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: $box-shadow-dark; // Using variable
+  }
+}

@@ -1,62 +1,85 @@
+@import "variables";
+@import "mixins";
+
 .animal-page {
+  display: flex; // Changed for two-column layout
+  gap: $gap-lg; // Use $gap-lg
+  align-items: flex-start; // Align items to the start of the cross axis
   padding: 2rem;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
+  max-width: 1000px; // Increased max-width
+  margin: 2rem auto; // Keep centered, added top/bottom margin for spacing from nav/footer
+  text-align: left; // Changed from center
+
+  // &__image-column and &__details-column will be direct children
 
   h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #333;
+    // This now refers to h1 within .animal-page (if any outside details-column)
+    font-size: $font-size-xl;
+    // margin-bottom: 1rem; // Will be handled by details-column gap or specific h1 style inside it
+    color: $text-color;
+  }
+
+  // Specific styles for elements if they are direct children of .animal-page,
+  // otherwise, they will be styled within their respective columns.
+
+  &__image-column {
+    flex: 1; // Or flex-basis: 40%; or specific width like flex: 0 0 400px;
+    // position: sticky; // Optional: if details scroll and image stays
+    // top: 2rem; // Optional: if sticky
+  }
+
+  &__details-column {
+    flex: 1; // Or flex-basis: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: $gap-md; // Use $gap-md, Spacing for items within this column
+
+    h1 {
+      // Styling for H1 specifically within details column
+      margin-bottom: 0; // Handled by column gap
+      font-size: $font-size-xl; // Already defined, but can be reiterated
+      color: $text-color; // Already defined
+    }
+
+    .animal-page__description {
+      // Ensure specificity or move rule if it's a direct child
+      font-size: $font-size-md;
+      color: $secondary-text-color;
+      margin-bottom: 0; // Handled by column gap
+      line-height: 1.6;
+    }
+
+    .animal-page__last-fed {
+      // Ensure specificity
+      font-size: $font-size-sm;
+      color: $text-color;
+      margin-bottom: 0; // Handled by column gap
+    }
+
+    .animal-page__warning {
+      // Ensure specificity
+      font-size: $font-size-sm;
+      color: $warning-color;
+      font-weight: bold;
+      margin-bottom: 0; // Handled by column gap
+    }
+
+    .animal-page__feed-button {
+      // Ensure specificity
+      @include button-base;
+      align-self: flex-start; // Align button to the start of the flex container
+      // margin-bottom: 0; // If needed, or handled by column gap
+    }
   }
 
   &__image {
+    // This is now inside __image-column
     width: 100%;
     height: auto;
-    max-height: 400px;
+    max-height: 400px; // Can be adjusted or made dynamic
     object-fit: cover;
-    border-radius: 12px;
-    margin-bottom: 1.5rem;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-
-  &__description {
-    font-size: 1.2rem;
-    color: #666;
-    margin-bottom: 1rem;
-    line-height: 1.6;
-  }
-
-  &__last-fed {
-    font-size: 1rem;
-    color: #333;
-    margin-bottom: 1rem;
-  }
-
-  &__warning {
-    font-size: 1rem;
-    color: #ff9800;
-    font-weight: bold;
-    margin-bottom: 1rem;
-  }
-
-  &__feed-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1.2rem;
-    background-color: #4caf50;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
-    &:hover {
-      background-color: #45a049;
-    }
-
-    &:disabled {
-      background-color: #ccc;
-      cursor: not-allowed;
-    }
+    border-radius: $border-radius-lg;
+    box-shadow: $box-shadow-image;
+    margin-bottom: 0; // Removed margin as it's in its own column
   }
 }

@@ -1,7 +1,10 @@
+@import "variables";
+@import "mixins";
+
 .layout--homepage {
   background: url("/background.jpg") no-repeat center center;
   background-size: cover; // Gör att bilden täcker hela området
-  color: white; // Gör texten vit för att synas mot bakgrunden
+  color: $white-color; // Gör texten vit för att synas mot bakgrunden
 
   .layout__header {
     background-color: transparent; // Gör headern transparent
@@ -19,22 +22,20 @@
   }
 
   .homepage__title {
-    font-size: 3rem;
+    font-size: $font-size-xxl;
     margin-bottom: 1rem;
   }
 
   .homepage__button {
+    @include button-base;
+    background-color: $black-transparent-70;
+    color: $white-color; // Explicitly set, though default in mixin
     padding: 1rem 2rem;
-    font-size: 1.5rem;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s;
+    font-size: $font-size-lg;
+    border-radius: $border-radius-sm;
 
     &:hover {
-      background-color: rgba(0, 0, 0, 0.9);
+      background-color: $black-transparent-90;
     }
   }
 }
