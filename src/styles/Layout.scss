@@ -1,10 +1,11 @@
 @import "variables";
-@import "mixins"; // Included for consistency, though not strictly used in this file
+@import "mixins";
 
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
 .layout {
@@ -14,12 +15,12 @@
 
   &__header {
     background-color: $primary-color; //Klar
-    color: $white-color; // Vit text
+    color: $white-color;
     padding: 1.5rem;
-    position: relative; // Behövs för att använda absolut positionering för länkar
+    position: relative;
     display: flex;
-    justify-content: space-between; // Centrerar loggan horisontellt
-    align-items: center; // Centrerar innehållet vertikalt
+    justify-content: space-between;
+    align-items: center;
 
     img {
       width: 150px;
@@ -28,20 +29,18 @@
     ul {
       list-style: none;
       display: flex;
-      gap: 1.5rem; // Adjusted gap between links
+      gap: 1.5rem;
 
       li a {
-        color: #fff; // White text for links
+        color: #fff;
         text-decoration: none;
-        font-weight: 500; // Medium font weight for nav links
-        padding: 0.5rem 0; // Add padding for easier clicking
-        position: relative; // For hover effect
+        padding: 0.5rem 0;
+        position: relative;
 
         &:hover {
-          color: #ddd; // Lighter color on hover
+          color: #ddd;
         }
 
-        // Adding a subtle underline hover effect
         &::after {
           content: "";
           position: absolute;
@@ -68,21 +67,8 @@
 
   &__footer {
     background-color: $primary-color;
-    color: $text-color;
-    padding: 1rem;
+    color: $text-color-white;
+    padding: $spacing-unit;
     text-align: center;
-  }
-
-  @media (max-width: 600px) {
-    .layout__header {
-      flex-direction: column;
-      align-items: flex-start;
-
-      nav {
-        position: static;
-        transform: none;
-        margin-top: 1rem;
-      }
-    }
   }
 }

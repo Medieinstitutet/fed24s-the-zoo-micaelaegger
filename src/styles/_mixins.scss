@@ -32,15 +32,14 @@
 @mixin card-base {
   display: flex;
   flex-direction: column;
-  background-color: $background-color-light; // Using variable
-  // border: 1px solid $border-color; // REMOVE THIS LINE
-  border-radius: $border-radius-lg; // Using variable
+  background-color: $background-color-light;
+  border-radius: $border-radius-lg;
   overflow: hidden;
-  box-shadow: $box-shadow-light; // Using variable
-  transition: $transition-transform; // Using variable
+  box-shadow: $box-shadow-light;
+  transition: $transition-transform;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: $box-shadow-dark; // Using variable
+    box-shadow: $box-shadow-dark;
   }
 }

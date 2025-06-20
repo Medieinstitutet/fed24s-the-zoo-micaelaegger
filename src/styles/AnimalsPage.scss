@@ -12,31 +12,12 @@
   }
 
   .animals-list {
-    @include responsive-grid($gap-lg, 350px); // Use $gap-lg
-    // display: grid; // from mixin
-    // grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); // from mixin
-    // gap: 2rem; // from mixin
-    // justify-content: center; // from mixin
-    // list-style: none; // from mixin
-    // padding: 0; // from mixin
+    @include responsive-grid($gap-lg, 350px);
   }
 
   .animal-card {
     @include card-base;
-    padding: 1rem; // Add padding to the card itself
-    // display: flex; // from mixin
-    // flex-direction: column; // from mixin
-    // background-color: $background-color-light; // from mixin
-    // border: none; // Removed from mixin
-    // border-radius: $border-radius-lg; // from mixin
-    // overflow: hidden; // from mixin
-    // box-shadow: $box-shadow-light; // from mixin
-    // transition: $transition-transform; // from mixin
-
-    // &:hover { // from mixin
-    //   transform: translateY(-5px); // from mixin
-    //   box-shadow: $box-shadow-dark; // from mixin
-    // }
+    padding: 0.5rem;
 
     &__link {
       text-decoration: none;

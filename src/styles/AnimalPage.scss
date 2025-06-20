@@ -2,78 +2,63 @@
 @import "mixins";
 
 .animal-page {
-  display: flex; // Changed for two-column layout
-  gap: $gap-lg; // Use $gap-lg
-  align-items: flex-start; // Align items to the start of the cross axis
+  display: flex;
+  gap: 5rem;
+  align-items: flex-start;
   padding: 2rem;
-  max-width: 1000px; // Increased max-width
-  margin: 2rem auto; // Keep centered, added top/bottom margin for spacing from nav/footer
-  text-align: left; // Changed from center
-
-  // &__image-column and &__details-column will be direct children
+  max-width: 1000px;
+  margin: 2rem auto;
+  text-align: left;
 
   h1 {
-    // This now refers to h1 within .animal-page (if any outside details-column)
     font-size: $font-size-xl;
-    // margin-bottom: 1rem; // Will be handled by details-column gap or specific h1 style inside it
     color: $text-color;
   }
 
-  // Specific styles for elements if they are direct children of .animal-page,
-  // otherwise, they will be styled within their respective columns.
-
   &__image-column {
-    flex: 1; // Or flex-basis: 40%; or specific width like flex: 0 0 400px;
-    // position: sticky; // Optional: if details scroll and image stays
-    // top: 2rem; // Optional: if sticky
+    flex-basis: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   &__details-column {
-    flex: 1; // Or flex-basis: 60%;
+    flex-basis: 50%;
     display: flex;
     flex-direction: column;
-    gap: $gap-md; // Use $gap-md, Spacing for items within this column
+    align-items: flex-start;
+    gap: $gap-md;
 
     h1 {
-      // Styling for H1 specifically within details column
-      margin-bottom: 0; // Handled by column gap
-      font-size: $font-size-xl; // Already defined, but can be reiterated
-      color: $text-color; // Already defined
+      margin-bottom: 0;
+      font-size: $font-size-xl;
+      color: $text-color;
     }
 
     .animal-page__description {
-      // Ensure specificity or move rule if it's a direct child
       font-size: $font-size-md;
       color: $secondary-text-color;
-      margin-bottom: 0; // Handled by column gap
       line-height: 1.6;
     }
 
     .animal-page__last-fed {
-      // Ensure specificity
       font-size: $font-size-sm;
       color: $text-color;
-      margin-bottom: 0; // Handled by column gap
     }
 
     .animal-page__warning {
-      // Ensure specificity
       font-size: $font-size-sm;
       color: $warning-color;
       font-weight: bold;
-      margin-bottom: 0; // Handled by column gap
     }
 
     .animal-page__feed-button {
-      // Ensure specificity
       @include button-base;
-      align-self: flex-start; // Align button to the start of the flex container
-      // margin-bottom: 0; // If needed, or handled by column gap
+      align-self: center; // Center button
     }
   }
 
   &__image {
-    // This is now inside __image-column
     width: 100%;
     height: auto;
     max-height: 400px; // Can be adjusted or made dynamic
@@ -81,5 +66,31 @@
     border-radius: $border-radius-lg;
     box-shadow: $box-shadow-image;
     margin-bottom: 0; // Removed margin as it's in its own column
+  }
+}
+
+@media (max-width: 768px) {
+  .animal-page {
+    flex-direction: column;
+    align-items: center; // Center the single column layout
+
+    &__image-column,
+    &__details-column {
+      flex-basis: auto; // Reset basis
+      width: 90%; // Use a percentage width, e.g., 90%
+      max-width: 500px; // Max width for content in single column
+    }
+
+    &__image {
+      max-width: 100%; // Ensure image is responsive within its column
+    }
+
+    &__details-column {
+      // Ensure text alignment and button alignment are still good
+      // text-align: center; // Already set, but confirm
+      // .animal-page__feed-button {
+      //   align-self: center; // Already set, but confirm
+      // }
+    }
   }
 }
