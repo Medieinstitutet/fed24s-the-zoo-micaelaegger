@@ -72,7 +72,7 @@ Ha roligt, skratta och lär er massor!
 - C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\reducer\AnimalReducer.ts - no-unused-vars - 'SET_ANIMALS' is defined but never used.,no-unused-vars - 'UPDATE_ANIMAL' is defined but never used.,no-unused-vars - 'FEED_ANIMAL' is defined but never used.,no-console - Unexpected console statement.
 
 ## 🏆 **Betyg: VG**
-📌 **Motivering:** Projektet uppfyller alla krav för betyg G och VG. Routern är korrekt implementerad med användning av layouts och child-routes. Det finns en översiktssida för djur där djurens status visas på ett diskret sätt. Projektet använder context istället för props och reducers istället för state. Data hämtas med hjälp av en custom hook och styling är gjord med SCSS-mixins. Trasiga bildlänkar hanteras, och sidan innehåller subtila animeringar för knappar och transitions.
+📌 **Motivering:** Projektet uppfyller alla krav för både G och VG. Det använder en router för att hantera olika sidor och inkluderar layouts och child-routes. Bildfel hanteras genom att ersätta trasiga länkar med en platsbild. Projektet använder SCSS för styling vilket är en avancerad teknik jämfört med ren CSS. Vidare används context och reducers istället för props och state, och det implementeras subtila animeringar vid knapptryckningar och sidladdningar【4:0†source】    .
 
 💡 **Förbättringsförslag:**  
-Koden är välstrukturerad och har bra felhantering. En möjlig förbättring kan vara att tillföra fler enhetstester för viktiga funktionaliteter för att säkerställa robustheten.
+Inga större förbättringar behövs. Eventuellt skulle man kunna undersöka prestandaoptimering av bildladdning vid användning av stora bilder och öka testtäckningen för funktionalitet i reducerare och komponenter.
