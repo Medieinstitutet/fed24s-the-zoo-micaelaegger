@@ -1,7 +1,6 @@
 # 📌 Rättningsrapport – fed24s-the-zoo-micaelaegger
 
 ## 🎯 Uppgiftens Krav:
-[![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/xBUCHFwF)
 # The Zoo
 
 I denna inlämningsuppgift kommer ni att bygga ett zoo. Zoo:t har ett antal djur som kommer behöva matas. 
@@ -66,13 +65,12 @@ Välj en teknik gällande css som ni antingen vill lära er mer om eller som ni 
 
 Ha roligt, skratta och lär er massor!
 
-
 ## 🔍 ESLint-varningar:
 - C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\hooks\useFetchAllAnimals.ts - no-console - Unexpected console statement.,no-console - Unexpected console statement.
 - C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\reducer\AnimalReducer.ts - no-unused-vars - 'SET_ANIMALS' is defined but never used.,no-unused-vars - 'UPDATE_ANIMAL' is defined but never used.,no-unused-vars - 'FEED_ANIMAL' is defined but never used.,no-console - Unexpected console statement.
 
-## 🏆 **Betyg: VG**
-📌 **Motivering:** Projektet uppfyller alla krav för både G och VG. Det använder en router för att hantera olika sidor och inkluderar layouts och child-routes. Bildfel hanteras genom att ersätta trasiga länkar med en platsbild. Projektet använder SCSS för styling vilket är en avancerad teknik jämfört med ren CSS. Vidare används context och reducers istället för props och state, och det implementeras subtila animeringar vid knapptryckningar och sidladdningar【4:0†source】    .
+## 🏆 **Betyg: IG**
+📌 **Motivering:** Tekniskt fel vid AI-analys. Kontrollera manuellt.
 
 💡 **Förbättringsförslag:**  
-Inga större förbättringar behövs. Eventuellt skulle man kunna undersöka prestandaoptimering av bildladdning vid användning av stora bilder och öka testtäckningen för funktionalitet i reducerare och komponenter.
+Automatisk rättning med AI-assistant misslyckades. Vänligen kontrollera koden manuellt.
