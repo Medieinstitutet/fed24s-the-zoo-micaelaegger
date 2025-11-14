@@ -69,8 +69,8 @@ Ha roligt, skratta och lär er massor!
 - C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\hooks\useFetchAllAnimals.ts - no-console - Unexpected console statement.,no-console - Unexpected console statement.
 - C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\reducer\AnimalReducer.ts - no-unused-vars - 'SET_ANIMALS' is defined but never used.,no-unused-vars - 'UPDATE_ANIMAL' is defined but never used.,no-unused-vars - 'FEED_ANIMAL' is defined but never used.,no-console - Unexpected console statement.
 
-## 🏆 **Betyg: G**
-📌 **Motivering:** Projektet uppfyller alla krav för betyg G. Koden är strukturerad och funktionell, med korrekt användning av routing och hantering av djurdata. Felhantering för trasiga bildlänkar är implementerad, och en annan teknik än ren CSS används för styling. Dock finns det utrymme för förbättringar i kodkvalitet och användning av avancerade tekniker för att nå VG.
+## 🏆 **Betyg: VG**
+📌 **Motivering:** Projektet uppfyller alla krav för både betyg G och VG. Koden är välstrukturerad, följer best practices och har bra felhantering. Användningen av context och reducers är korrekt implementerad, och subtila animeringar förbättrar användarupplevelsen. Alla funktionella krav, inklusive korrekt hantering av djurens matningslogik och bildfel, är uppfyllda.
 
 💡 **Förbättringsförslag:**  
-För att nå VG kan projektet förbättras genom att implementera context API för komponentkommunikation och reducers för state management. Användning av subtila animeringar vid interaktioner och sidladdningar kan också läggas till. Dessutom kan koden dra nytta av att minska upprepning och förbättra läsbarheten genom bättre kommentering och konsekvent namngivning.
+För framtida förbättringar kan studenten utforska mer avancerade prestandaoptimeringar, såsom lazy loading av komponenter och användning av memoization för att minska onödiga renderingar. Att implementera enhetstester skulle också vara fördelaktigt för att säkerställa kodens robusthet och underlätta framtida underhåll.
