@@ -66,11 +66,11 @@ Välj en teknik gällande css som ni antingen vill lära er mer om eller som ni 
 Ha roligt, skratta och lär er massor!
 
 ## 🔍 ESLint-varningar:
-- C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\hooks\useFetchAllAnimals.ts - no-console - Unexpected console statement.,no-console - Unexpected console statement.
-- C:\Work\AssignmentCorrector\backend\repos\fed24s-the-zoo-micaelaegger\src\reducer\AnimalReducer.ts - no-unused-vars - 'SET_ANIMALS' is defined but never used.,no-unused-vars - 'UPDATE_ANIMAL' is defined but never used.,no-unused-vars - 'FEED_ANIMAL' is defined but never used.,no-console - Unexpected console statement.
+- /app/repos/fed24s-the-zoo-micaelaegger/src/hooks/useFetchAllAnimals.ts - no-console - Unexpected console statement.,no-console - Unexpected console statement.
+- /app/repos/fed24s-the-zoo-micaelaegger/src/reducer/AnimalReducer.ts - no-unused-vars - 'SET_ANIMALS' is defined but never used.,no-unused-vars - 'UPDATE_ANIMAL' is defined but never used.,no-unused-vars - 'FEED_ANIMAL' is defined but never used.,no-console - Unexpected console statement.
 
 ## 🏆 **Betyg: VG**
-📌 **Motivering:** Projektet uppfyller alla krav för både betyg G och VG. Koden är välstrukturerad, följer best practices och har bra felhantering. Användningen av context och reducers är korrekt implementerad, och subtila animeringar förbättrar användarupplevelsen. Alla funktionella krav, inklusive korrekt hantering av djurens matningslogik och bildfel, är uppfyllda.
+📌 **Motivering:** Projektet uppfyller alla krav för både betyg G och VG. Koden är välstrukturerad, följer etablerade konventioner och använder moderna tekniker som context och reducers för state management. Felhantering och användargränssnittet är genomtänkt och funktionellt. Studenten har visat en god förståelse för avancerade koncept inom frontend-utveckling.
 
 💡 **Förbättringsförslag:**  
-För framtida förbättringar kan studenten utforska mer avancerade prestandaoptimeringar, såsom lazy loading av komponenter och användning av memoization för att minska onödiga renderingar. Att implementera enhetstester skulle också vara fördelaktigt för att säkerställa kodens robusthet och underlätta framtida underhåll.
+För att ytterligare förbättra projektet kan studenten optimera prestandan genom att minimera antalet renderingar och använda memoization där det är möjligt. Dessutom kan mer omfattande enhetstester implementeras för att säkerställa robusthet och täcka fler scenarier.
